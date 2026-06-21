@@ -1,0 +1,36 @@
+[project]
+name = "dip-fraktion-poc"
+version = "0.1.0"
+description = "PoC: Fraktionsverteilung des Deutschen Bundestags via DIP-API, strukturiert nach dem Model Context Protocol, mit Groq-Agent."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.6",
+    "python-dotenv>=1.0",
+    "mcp>=1.2.0",
+    "groq>=0.11",
+    "fastapi>=0.110",
+    "uvicorn>=0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23", "respx>=0.21"]
+
+[project.scripts]
+dip-cli = "dip_poc.cli:main"
+dip-agent = "dip_poc.agent:main"
+dip-mcp = "dip_poc.mcp.server:main"
+dip-web = "dip_poc.web.run:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dip_poc"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+asyncio_mode = "auto"
+testpaths = ["tests"]

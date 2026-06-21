@@ -1,0 +1,50 @@
+{
+  "numFound": 5,
+  "documents": [
+    {
+      "id": "1001",
+      "nachname": "Merz",
+      "vorname": "Friedrich",
+      "wahlperiode": [19, 20],
+      "person_roles": [
+        {"funktion": "Mitglied des Bundestages", "fraktion": "CDU/CSU", "wahlperiode_nummer": [20]}
+      ]
+    },
+    {
+      "id": "1002",
+      "nachname": "Mustermann",
+      "vorname": "Anna",
+      "wahlperiode": [20],
+      "person_roles": [
+        {"funktion": "MdB", "fraktion": "SPD", "wahlperiode_nummer": [20]}
+      ]
+    },
+    {
+      "id": "1003",
+      "nachname": "Beispiel",
+      "vorname": "Bernd",
+      "wahlperiode": [20],
+      "person_roles": [
+        {"funktion": "MdB", "fraktion": "CDU", "wahlperiode_nummer": [20]}
+      ]
+    },
+    {
+      "id": "1004",
+      "nachname": "Schmidt",
+      "vorname": "Clara",
+      "wahlperiode": [19, 20],
+      "person_roles": [
+        {"funktion": "MdB", "fraktion": "SPD", "wahlperiode_nummer": [19]},
+        {"funktion": "MdB", "fraktion": "BÜNDNIS 90/DIE GRÜNEN", "wahlperiode_nummer": [20]}
+      ]
+    },
+    {
+      "id": "1005",
+      "nachname": "Ohnefraktion",
+      "vorname": "Otto",
+      "wahlperiode": [20],
+      "person_roles": []
+    }
+  ],
+  "cursor": "FINAL_CURSOR"
+}
