@@ -26,7 +26,20 @@ Install the project and its dependencies:
 pip install -e ".[dev]"
 ```
 
-### 2. Verify the setup
+### 2. Configure API keys
+
+Copy the example environment file and fill in your own keys:
+
+```bash
+cp .env.example .env
+```
+
+Then open `.env` and set:
+
+- `DIP_API_KEY` — get a free key from `https://dip.bundestag.de/%C3%BCber-dip/hilfe/api`
+- `GROQ_API_KEY` — create a free key at `https://console.groq.com/keys`.
+
+### 3. Verify the setup
 
 Run the test suite. These tests run fully offline and require no API keys:
 
