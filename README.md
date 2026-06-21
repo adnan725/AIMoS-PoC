@@ -1,3 +1,16 @@
+A few deliberate decisions:
+
+- **The language model never computes.** All counting and percentages are done in pure, tested Python (`core/aggregation.py`). The model only turns finished numbers into text. This keeps the figures correct and reproducible.
+- **MCP is applied where a language model is involved.** The chat goes through a real MCP server (tool discovery via `list_tools`, invocation via `call_tool` over stdio). The distribution view calls the same underlying service directly over HTTP — there is no need to route a deterministic lookup through a language model.
+- **Observability is built in.** Structured JSON logs with a correlation id per request, audit events (which tool was selected, API latency, cache hits), secret redaction, and validation of model-chosen arguments. See `observability/`.
+
+---
+
+## Possible extensions
+
+- A usage and cost dashboard built on the existing observability events. Tool usage and cache-hit rate are already captured, token consumption and cost estimation would be added by recording Groq's `usage` field per call.
+- Additional MCP tools (e.g. lookups by topic or document), which the agent would pick up automatically.
+
 ## Getting Started
 
 Follow these steps to set up and run the proof of concept locally.
