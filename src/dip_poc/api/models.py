@@ -21,7 +21,8 @@ class Person(BaseModel):
     vorname: str | None = None
     titel: str | None = None
     wahlperiode: list[int] = Field(default_factory=list)
-    person_roles: list[PersonRole] = Field(default_factory=list, alias="person_roles")
+    fraktion: list[str] = Field(default_factory=list)
+    funktion: list[str] = Field(default_factory=list)
     basisdatum: str | None = None
     aktualisiert: str | None = None
 

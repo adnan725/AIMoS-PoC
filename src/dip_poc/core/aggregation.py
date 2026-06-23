@@ -25,15 +25,10 @@ def normalise_fraktion(raw: str | None) -> str:
 
 
 def resolve_fraktion(person: Person, wahlperiode: int) -> str:
-    matching = [
-        role for role in person.person_roles
-        if role.fraktion and wahlperiode in role.wahlperiode_nummer
-    ]
-    if matching:
-        return normalise_fraktion(matching[0].fraktion)
-    any_with_fraktion = [role for role in person.person_roles if role.fraktion]
-    if any_with_fraktion:
-        return normalise_fraktion(any_with_fraktion[0].fraktion)
+    if wahlperiode not in person.wahlperiode:
+        return UNKNOWN_FRAKTION
+    if person.fraktion:
+        return normalise_fraktion(person.fraktion[0])
     return UNKNOWN_FRAKTION
 
 
